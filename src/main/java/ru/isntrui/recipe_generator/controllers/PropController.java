@@ -138,4 +138,15 @@ public class PropController {
         headers.set("Content-Type", "application/json");
         return new ResponseEntity("{\"e\": " + (!userService.getCurrentUser().getTotpSecret().equals(null) || !userService.getCurrentUser().getTotpSecret().isBlank()) + "}", headers, HttpStatus.OK);
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<Void> upDate(@RequestBody User user) {
+        User u = userService.getCurrentUser();
+        u.setFirstName(user.getFirstName());
+        u.setLastName(user.getLastName());
+        userService.updateUser(u);
+        System.out.println("hehehehehe");
+        System.out.println(u);
+        return ResponseEntity.ok().build();
+    }
 }

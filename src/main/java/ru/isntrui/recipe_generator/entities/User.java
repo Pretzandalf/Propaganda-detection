@@ -1,9 +1,10 @@
 package ru.isntrui.recipe_generator.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import io.lettuce.core.dynamic.annotation.CommandNaming;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
@@ -25,7 +26,6 @@ import java.util.UUID;
 public class User implements UserDetails {
     @Id
     @GeneratedValue
-    @JsonIgnore
     private UUID id;
     @NonNull
     private String username;
